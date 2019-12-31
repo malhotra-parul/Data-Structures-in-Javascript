@@ -21,9 +21,9 @@ async function m2(){
 }
 // m2();
 //Method 3 Building Promises
-function m3(){
+function m3(path){
     return new Promise((resolve,reject)=>{
-        fs.readFile("main.txt", (err,data)=>{
+        fs.readFile(path, (err,data)=>{
             if(err){
                 reject(err);
             }
@@ -31,7 +31,7 @@ function m3(){
         })
     })
 }
-m3().then((data)=>{
+m3("main.txt").then((data)=>{
     console.log(data.toString())
 }).catch((err)=>{
     console.error(err);
