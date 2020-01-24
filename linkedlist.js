@@ -26,15 +26,34 @@ LinkedList.prototype.addToHead = function(value){
 
 }
 
+LinkedList.prototype.addToTail = function(value){
+
+        let newNode = new Node(this.tail,value,null);
+        if(this.tail){
+            //this is not empty case
+            this.tail.next = newNode;
+        }
+        else{
+            //empty linked list
+            this.head = newNode;
+        }
+        this.tail = newNode;
+}
+
+
+
+
 /*
-        this.head = 200 
-        this.tail = null
-        null 300 200
-        300 200 null    
+        this.head = 300 
+        this.tail = 300
+        null 300 null //this.tail
+        300  200 null 
 
 */
 
 const ll = new LinkedList();
-ll.addToHead(200);
-ll.addToHead(300);
+// ll.addToHead(200);
+// ll.addToHead(300);
+ll.addToTail(300)
+ll.addToTail(200);
 console.log(ll);
